@@ -34,3 +34,21 @@ document.addEventListener('click', function(event) {
         clouseMenu();
     }
 });
+
+// card photo changes
+
+let activeImgItem = document.querySelector('.card__main-img');
+let cardImgList = document.querySelectorAll('.card__img');
+
+
+for (let cardImg of cardImgList) {
+    cardImg.onclick = function(evt) {
+        evt.preventDefault();
+        activeImgItem.src = cardImg.src;
+
+        let currentActiveItem = document.querySelector('.active-img-item');
+        currentActiveItem.classList.remove('active-img-item');
+
+        cardImg.parentElement.classList.add('active-img-item');
+    }
+}

@@ -1,120 +1,75 @@
-.hero {
-    display: flex;
-    justify-content: space-around;
-    column-gap: 20px;
-    row-gap: 10px;
+.card {
     margin-bottom: 60px;
 }
 
-.hero__img {
-    width: 450px;
-    height: auto;
-}
-
-.hero__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    z-index: 2;
-}
-
-.hero__title {
-    margin: 0 0 25px 0;
-    max-width: 500px;
-    word-break: break-word;
-    overflow-wrap: break-word;
+.card__title {
+    margin: 0 0 35px 0;
     font-size: 50px;
     line-height: 1;
 }
 
-.hero__btn-holder {
-    display: flex;
-    justify-content: start;
-    flex-wrap: wrap;
-    column-gap: 20px;
-    row-gap: 20px;
-}
-
-.hero__btn {
-    display: block;
-    padding: 16px 28px;
-    font-weight: bold;
-    font-size: 20px;
-    color: #fff;
-    background-color: var(--main-color);
-    box-shadow: 0 6px 16px rgba(255, 165, 58, 0.5);
-    border: none;
-    border-radius: 30px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background 0.4s ease, color 0.4s ease;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.hero__btn:active {
-    transform: scale(0.97);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-}
-
-.btn--ozon::before, .btn--wb::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, #00b0ff, #0085ff);
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    border-radius: 30px;
-}
-
-.btn--wb::before {
-    background: linear-gradient(90deg, #a100ff, #c700ff, #8e2eff);
-}
-
-.btn--ozon:hover::before, .btn--wb:hover::before {
-    opacity: 1;
-}
-
-.benefits {
-    margin-bottom: 60px;
-}
-
-.benefits__title {
-    font-size: 32px;
+.card__main-img-holder {
     margin: 0 0 25px 0;
-    text-align: center;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.benefits__list {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    row-gap: 20px;
+.card__main-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
-.benefits__item {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
-}
-
-.benefits__img {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-}
-
-.benefits__name {
+.card__img-list {
     margin: 0;
-    font-size: 24px;
-    text-align: center;
+    padding: 0;
+    max-width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    list-style: none;
+}
+
+.card__img-item {
+    position: relative;
+    height: 180px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.card__img-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card__img-item:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card__img {
+    width: auto;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.card__img-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+}
+
+.active-img-item::before {
+  background-color: transparent;
 }
 
 /* goods and reviews */
@@ -277,6 +232,7 @@
   border-radius: 8px;
 }
 
+
 /* mobile styles */
 
 @media (max-width: 1024px) {
@@ -294,54 +250,8 @@
         padding: 0 15px;
     }
 
-    .hero {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .hero__content {
-        align-items: center;
-    }
-    
-    .hero__img {
-        width: 250px;
-        height: auto;
-    }
-
-    .hero__title {
-        font-size: 36px;
-        line-height: 1.2;
-        text-align: center;
-    }
-
-    .hero__btn-holder {
-        justify-content: center;
-    }
-
-    .hero__btn {
-        display: block;
-        padding: 12px 20px;
-        font-weight: bold;
-        font-size: 16px;
-    }
-
-    .btn--ozon {
-        background: linear-gradient(90deg, #00b0ff, #0085ff);
-    }
-
-    .btn--wb {
-        background: linear-gradient(90deg, #a100ff, #c700ff, #8e2eff);
-    }
-
-    .benefits__title {
-        margin: 0 0 40px 0;
-    }
-
-    .benefits__img {
-        width: 100px;
-        height: 100px;
-        object-fit: contain;
+    .card__title {
+        font-size: 35px;
     }
 
     .goods__title {

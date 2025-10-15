@@ -9,20 +9,26 @@
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 30px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
 .category__item {
     width: 265px;
     padding: 16px;
     text-align: center;
-    text-decoration: none;
-    color: inherit;
     flex-shrink: 0;
     background-color: #fff;
     border-radius: 16px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
+}
+
+.category__item a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .category__item:hover {

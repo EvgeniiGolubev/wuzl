@@ -37,8 +37,8 @@ document.addEventListener('click', function(event) {
 
 // card photo changes
 
-let activeImgItem = document.querySelector('.card__main-img');
-let cardImgList = document.querySelectorAll('.card__img');
+let activeImgItem = document.querySelector('.card__image');
+let cardImgList = document.querySelectorAll('.card__thumbnail img');
 
 
 for (let cardImg of cardImgList) {
@@ -46,9 +46,9 @@ for (let cardImg of cardImgList) {
         evt.preventDefault();
         activeImgItem.src = cardImg.src;
 
-        let currentActiveItem = document.querySelector('.active-img-item');
-        currentActiveItem.classList.remove('active-img-item');
+        let currentActiveItem = document.querySelector('.card__thumbnail--active');
+        currentActiveItem.classList.remove('card__thumbnail--active');
 
-        cardImg.parentElement.classList.add('active-img-item');
+        cardImg.parentElement.classList.add('card__thumbnail--active');
     }
 }

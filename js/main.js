@@ -34,21 +34,3 @@ document.addEventListener('click', function(event) {
         clouseMenu();
     }
 });
-
-// card photo changes
-
-let activeImgItem = document.querySelector('.card__image');
-let cardImgList = document.querySelectorAll('.card__thumbnail img');
-
-
-for (let cardImg of cardImgList) {
-    cardImg.onclick = function(evt) {
-        evt.preventDefault();
-        activeImgItem.src = cardImg.src;
-
-        let currentActiveItem = document.querySelector('.card__thumbnail--active');
-        currentActiveItem.classList.remove('card__thumbnail--active');
-
-        cardImg.parentElement.classList.add('card__thumbnail--active');
-    }
-}

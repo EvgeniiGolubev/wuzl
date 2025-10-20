@@ -35,4 +35,36 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtnSelector: '.reviews__btn--next',
     gap: 30
   });
+
+  createScrollableSlider({
+    listSelector: '.images__list',
+    prevBtnSelector: '.images__btn--prev',
+    nextBtnSelector: '.images__btn--next',
+    gap: 30
+  });
+});
+
+// card photo changes
+document.addEventListener('DOMContentLoaded', () => {
+    const list = document.querySelector('.images__list');
+    const imgItems = list.querySelectorAll('.images__item');
+    const thumbs = document.querySelectorAll('.card__thumbnail img');
+
+    thumbs.forEach((thumb, index) => {
+        thumb.addEventListener('click', (evt) => {
+        evt.preventDefault();
+
+        const currentActive = document.querySelector('.card__thumbnail--active');
+        if (currentActive) currentActive.classList.remove('card__thumbnail--active');
+        thumb.parentElement.classList.add('card__thumbnail--active');
+
+        const targetItem = imgItems[index];
+        if (!targetItem) return;
+
+        list.scrollTo({
+            left: targetItem.offsetLeft,
+            behavior: 'smooth'
+        });
+        });
+    });
 });

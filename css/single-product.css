@@ -15,11 +15,34 @@
     gap: 40px;
 }
 
-.card__image-main {
+.images__wrapper {
     margin: 0 0 25px 0;
+    position: relative;
+    overflow: hidden;
     max-width: 550px;
-    max-height: 550px;
-    border-radius: 8px;
+
+}
+
+.images__list {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.images__list::-webkit-scrollbar {
+    display: none;
+}
+
+.images__item {
+    width: 550px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
 }
 
 .card__image {
@@ -400,6 +423,10 @@
 
     .reviews__title {
         margin: 0 0 40px 0;
+    }
+
+    .images__item {
+        width: calc(100%);
     }
 
     .goods__item {

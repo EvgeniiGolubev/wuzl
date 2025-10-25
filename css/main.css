@@ -291,10 +291,11 @@
 
 @media (max-width: 767px) {
     .main__container {
-        padding: 0 15px;
+        padding: 15px;
     }
 
     .hero {
+        margin-bottom: 30px;
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -334,8 +335,12 @@
         background: linear-gradient(90deg, #a100ff, #c700ff, #8e2eff);
     }
 
+    .benefits {
+        margin-bottom: 30px;
+    }
+
     .benefits__title {
-        margin: 0 0 40px 0;
+        margin: 0 0 25px 0;
     }
 
     .benefits__img {
@@ -344,8 +349,12 @@
         object-fit: contain;
     }
 
+    .goods {
+        margin-bottom: 30px;
+    }
+
     .goods__title {
-        margin: 0 0 40px 0;
+        margin: 0 0 25px 0;
     }
 
     .goods__name {
@@ -362,6 +371,14 @@
 
     .goods__item {
         width: calc(100vw - 40px);
+    }
+
+    .reviews {
+        margin-bottom: 0;
+    }
+
+    .reviews__title {
+        margin: 0 0 25px 0;
     }
 
     .reviews__item {

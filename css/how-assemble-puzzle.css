@@ -36,10 +36,6 @@
 }
 
 @media (max-width: 767px) {
-    .main__container {
-        padding: 15px;
-    }
-
     .video {
         margin-bottom: 30px;
         display: flex;

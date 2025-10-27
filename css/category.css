@@ -66,10 +66,6 @@
 }
 
 @media (max-width: 767px) {
-    .main__container {
-        padding: 15px;
-    }
-    
     .category__title {
         font-size: 35px;
     }

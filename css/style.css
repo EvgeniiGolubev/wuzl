@@ -86,6 +86,10 @@ a, .btn {
 }
 
 @media (max-width: 767px) {
+    .main__container {
+        padding: 15px;
+    }
+
     .bread-crumbs__item {
         font-size: 16px;
     }

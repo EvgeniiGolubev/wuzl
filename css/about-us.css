@@ -24,7 +24,7 @@
 }
 
 .company__description-holder, .production__description-holder {
-    max-width: 700px;
+    max-width: 680px;
 }
 
 .company__description, .team__description, .production__description {
@@ -64,7 +64,7 @@
     background-color: #fff;
     border-radius: 16px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    padding: 16px;
+    padding: 24px;
     text-align: center;
 }
 
@@ -74,6 +74,13 @@
 
 .team__info hr {
     width: 100px;
+}
+
+.team__image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .team__name {
@@ -93,10 +100,6 @@
 }
 
 @media (max-width: 767px) {
-    .main__container {
-        padding: 15px;
-    }
-
     .about-us__title {
         font-size: 35px;
     }

@@ -369,10 +369,6 @@
 }
 
 @media (max-width: 767px) {
-    .main__container {
-        padding: 0 15px;
-    }
-
     .card {
         margin-bottom: 30px;
     }

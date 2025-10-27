@@ -290,10 +290,6 @@
 }
 
 @media (max-width: 767px) {
-    .main__container {
-        padding: 15px;
-    }
-
     .hero {
         margin-bottom: 30px;
         flex-direction: column;

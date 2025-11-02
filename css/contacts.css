@@ -4,6 +4,118 @@
     line-height: 1;
 }
 
+.contacts__body {
+    margin-bottom: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.contacts__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contacts__list > li {
+    margin-bottom: 20px;
+}
+
+.contacts__list a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contacts__list a:hover {
+    color: var(--active-main-color);
+}
+
+.contacts__list i {
+    color: var(--main-color);
+    margin-right: 10px;
+}
+
+.contacts__list ul {
+    list-style: none;
+    padding: 0 0 0 46px;
+    color: var(--color-text);
+}
+
+.map-container {
+    position: relative;
+    max-width: 600px;
+    height: 360px;
+    aspect-ratio: 16/9;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(20%) brightness(0.98);
+    transition: filter 0.3s ease;
+}
+
+.feedback {
+    margin: 0 auto 0;
+    text-align: center;
+    max-width: 800px;
+}
+
+.feedback__title {
+    margin: 0 0 10px 0;
+}
+
+.feedback__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.feedback__form input,
+.feedback__form textarea {
+    width: 100%;
+    border: 1px solid var(--main-color);
+    border-radius: 8px;
+    background: #fff;
+    padding: 10px 14px;
+    font-size: 18px;
+    font-family: inherit;
+    color: var(--color-text);
+    transition: border-color 0.2s ease;
+}
+
+.feedback__form input:focus,
+.feedback__form textarea:focus {
+    border-color: var(--active-main-color);
+    outline: none;
+}
+
+.feedback__form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.feedback__form button {
+    align-self: center;
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 28px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.feedback__form button:hover {
+    background: var(--active-main-color);
+}
+
 @media (max-width: 767px) {
     .contacts__title {
         font-size: 35px;

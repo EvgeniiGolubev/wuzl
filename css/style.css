@@ -94,3 +94,52 @@ a, .btn {
         font-size: 16px;
     }
 }
+
+/* Up button */
+
+.up-button {
+    position: fixed;
+    z-index: 1;
+    padding: 0;
+    bottom: 190px;
+    right: 20px;
+    width: 64px;
+    height: 64px;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    border: 5px solid;
+    border-radius: 50%;
+    display: none;
+    cursor: pointer;
+
+    color: var(--main-color);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: var(--main-color);
+    outline-color: var(--main-color);
+}
+
+.shown {
+    display: inline-block;
+}
+
+.arrow-top {
+    position: relative;
+    width: 8px;
+    height: 14px;
+    top: 6px;
+    left: 23px;
+    background-color: var(--main-color);
+}
+
+.arrow-top::before {
+    content: '';
+    position: absolute;
+    top: -13px;
+    left: -10px;
+    border: 14px solid var(--main-color);
+    border-top-width: 0;
+    border-left-color: transparent;
+    border-right-color: transparent;
+}

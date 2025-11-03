@@ -282,7 +282,7 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     gap: 30px;
 }
 
@@ -366,7 +366,7 @@
 }
 
 .blog__image {
-    max-width: 100%;
+    max-width: 380px;
     height: auto;
     margin-bottom: 10px;
     border-radius: 8px;
@@ -528,6 +528,11 @@
         margin-bottom: 0;
         width: auto;
         font-size: 16px;
+    }
+
+    .blog__image {
+        max-width: 300px;
+        height: auto;
     }
 
     .reviews__title {

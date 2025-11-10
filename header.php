@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Магазин деревянных головоломок, игр и подарков ручной работы.">
+    <title>Деревянные головоломки и настольные игры – Магазин Wuzl</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <?php wp_head(); ?>
+</head>
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <div class="header__logo">
+                <a href="<?php echo home_url("/"); ?>" title="Главная"><img class="logo__img" alt="Логотип" src="img/logo.png" width="150"/></a>
+            </div>
+            <nav class="header__menu--mobile">
+                <ul class="menu__list--mobile menu__list-close">
+                    <li class="menu__item--mobile <?php if (is_front_page()) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/"); ?>" title="Главная" aria-current="page">Главная</a></li>
+                    <li class="menu__item--mobile <?php if (is_page("catalog")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/catalog/"); ?>" title="Каталог">Каталог</a></li>
+                    <li class="menu__item--mobile"><a href="/how-assemble-puzzle.html" title="Как собрать головоломку?">Как собрать головоломку?</a></li>
+                    <li class="menu__item--mobile"><a href="/about-us.html" title="О нас">О нас</a></li>
+                    <li class="menu__item--mobile"><a href="/blog.html" title="Блог">Блог</a></li>
+                    <li class="menu__item--mobile"><a href="/contacts.html" title="Контакты">Контакты</a></li>
+                </ul>
+                <div class="menu__icon">
+                    <span></span>
+                </div>
+            </nav>
+            <nav class="header__menu">
+                <ul class="menu__list">
+                    <li class="menu__item <?php if (is_front_page()) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/"); ?>" title="Главная" aria-current="page">Главная</a></li>
+                    <li class="menu__item <?php if (is_page("catalog")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/catalog/"); ?>" title="Каталог">Каталог</a></li>
+                    <li class="menu__item"><a href="/how-assemble-puzzle.html" title="Как собрать головоломку?">Как собрать головоломку?</a></li>
+                    <li class="menu__item"><a href="/about-us.html" title="О нас">О нас</a></li>
+                    <li class="menu__item"><a href="/blog.html" title="Блог">Блог</a></li>
+                    <li class="menu__item"><a href="/contacts.html" title="Контакты">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>

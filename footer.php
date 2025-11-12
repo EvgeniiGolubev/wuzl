@@ -2,14 +2,14 @@
         <div class="footer__container container">
             <div class="footer__info">
                 <p class="footer__copy">© 2025 Wooden Puzzles & Games.<br> Все права защищены.</p>
-                <a href="/privacy-policy.html" class="footer__policy" title="Политика конфиденциальности">Политика конфиденциальности</a>
+                <a href="<?php echo home_url("/politika-konfidencialnosti/"); ?>" class="footer__policy" title="Политика конфиденциальности">Политика конфиденциальности</a>
             </div>
             <nav class="footer__menu">
                 <h3 class="footer__menu-title">Категории</h3>
                 <ul class="footer__menu-list">
-                    <li class="footer__menu-item"><a href="/category.html" title="Головоломки" aria-current="page">Головоломки</a></li>
-                    <li class="footer__menu-item"><a href="/category.html" title="Карточные игры">Карточные игры</a></li>
-                    <li class="footer__menu-item"><a href="/category.html" title="Наборы для DnD">Наборы для DnD</a></li>
+                    <li class="footer__menu-item"><a href="<?php echo home_url("/catalog/golovolomki/"); ?>" title="Головоломки" aria-current="page">Головоломки</a></li>
+                    <li class="footer__menu-item"><a href="<?php echo home_url("/catalog/kartochnye-igry/"); ?>" title="Карточные игры">Карточные игры</a></li>
+                    <li class="footer__menu-item"><a href="<?php echo home_url("/catalog/nabory-dlya-dnd/"); ?>" title="Наборы для DnD">Наборы для DnD</a></li>
                 </ul>
             </nav>
             <div class="footer__contacts-block">

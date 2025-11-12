@@ -18,9 +18,9 @@
             <nav class="header__menu--mobile">
                 <ul class="menu__list--mobile menu__list-close">
                     <li class="menu__item--mobile <?php if (is_front_page()) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/"); ?>" title="Главная" aria-current="page">Главная</a></li>
-                    <li class="menu__item--mobile <?php if (is_page("catalog")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/catalog/"); ?>" title="Каталог">Каталог</a></li>
-                    <li class="menu__item--mobile"><a href="/how-assemble-puzzle.html" title="Как собрать головоломку?">Как собрать головоломку?</a></li>
-                    <li class="menu__item--mobile"><a href="/about-us.html" title="О нас">О нас</a></li>
+                    <li class="menu__item--mobile <?php if (is_page("catalog") || is_category()) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/catalog/"); ?>" title="Каталог">Каталог</a></li>
+                    <li class="menu__item--mobile <?php if (is_page("kak-sobrat-golovolomku")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/kak-sobrat-golovolomku/"); ?>" title="Как собрать головоломку?">Как собрать головоломку?</a></li>
+                    <li class="menu__item--mobile <?php if (is_page("o-nas") || is_page("politika-konfidencialnosti")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/o-nas/"); ?>" title="О нас">О нас</a></li>
                     <li class="menu__item--mobile"><a href="/blog.html" title="Блог">Блог</a></li>
                     <li class="menu__item--mobile"><a href="/contacts.html" title="Контакты">Контакты</a></li>
                 </ul>
@@ -31,9 +31,9 @@
             <nav class="header__menu">
                 <ul class="menu__list">
                     <li class="menu__item <?php if (is_front_page()) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/"); ?>" title="Главная" aria-current="page">Главная</a></li>
-                    <li class="menu__item <?php if (is_page("catalog")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/catalog/"); ?>" title="Каталог">Каталог</a></li>
-                    <li class="menu__item"><a href="/how-assemble-puzzle.html" title="Как собрать головоломку?">Как собрать головоломку?</a></li>
-                    <li class="menu__item"><a href="/about-us.html" title="О нас">О нас</a></li>
+                    <li class="menu__item <?php if (is_page("catalog") || is_category()) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/catalog/"); ?>" title="Каталог">Каталог</a></li>
+                    <li class="menu__item <?php if (is_page("kak-sobrat-golovolomku")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/kak-sobrat-golovolomku/"); ?>" title="Как собрать головоломку?">Как собрать головоломку?</a></li>
+                    <li class="menu__item <?php if (is_page("o-nas") || is_page("politika-konfidencialnosti")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/o-nas/"); ?>" title="О нас">О нас</a></li>
                     <li class="menu__item"><a href="/blog.html" title="Блог">Блог</a></li>
                     <li class="menu__item"><a href="/contacts.html" title="Контакты">Контакты</a></li>
                 </ul>

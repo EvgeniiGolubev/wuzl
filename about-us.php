@@ -1,55 +1,16 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Компания WUZL создаёт деревянные головоломки и настольные игры ручной работы в Санкт-Петербурге. Узнайте о нашем производстве, команде и вдохновении.">
-    <title>О компании WUZL — производитель деревянных головоломок и игр</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/about-us.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-    <header class="header">
-        <div class="header__container container">
-            <div class="header__logo">
-                <a href="/" title="Главная"><img class="logo__img" alt="Логотип" src="img/logo.png" width="150"/></a>
-            </div>
-            <nav class="header__menu--mobile">
-                <ul class="menu__list--mobile menu__list-close">
-                    <li class="menu__item--mobile"><a href="#" title="Главная" aria-current="page">Главная</a></li>
-                    <li class="menu__item--mobile"><a href="/catalog.html" title="Каталог">Каталог</a></li>
-                    <li class="menu__item--mobile"><a href="/how-assemble-puzzle.html" title="Как собрать головоломку?">Как собрать головоломку?</a></li>
-                    <li class="menu__item--mobile menu__item--active"><a href="/about-us.html" title="О нас">О нас</a></li>
-                    <li class="menu__item--mobile"><a href="/blog.html" title="Блог">Блог</a></li>
-                    <li class="menu__item--mobile"><a href="/contacts.html" title="Контакты">Контакты</a></li>
-                </ul>
-                <div class="menu__icon">
-                    <span></span>
-                </div>
-            </nav>
-            <nav class="header__menu">
-                <ul class="menu__list">
-                    <li class="menu__item"><a href="/" title="Главная" aria-current="page">Главная</a></li>
-                    <li class="menu__item"><a href="/catalog.html" title="Каталог">Каталог</a></li>
-                    <li class="menu__item"><a href="/how-assemble-puzzle.html" title="Как собрать головоломку?">Как собрать головоломку?</a></li>
-                    <li class="menu__item menu__item--active"><a href="/about-us.html" title="О нас">О нас</a></li>
-                    <li class="menu__item"><a href="/blog.html" title="Блог">Блог</a></li>
-                    <li class="menu__item"><a href="/contacts.html" title="Контакты">Контакты</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<?php
+    /* 
+    * Template Name: About us
+    */
+    get_header();
+?>
     <main class="main">
         <div class="main__container container">
             <nav class="bread-crumbs" aria-label="Хлебные крошки">
                 <ol class="bread-crumbs__list">
-                    <li class="bread-crumbs__item"><a href="/" title="Главная">Главная</a></li>
+                    <li class="bread-crumbs__item"><a href="<?php echo home_url("/"); ?>" title="Главная">Главная</a></li>
                     <li class="bread-crumbs__item" aria-hidden="true">/</li>
-                    <li class="bread-crumbs__item"><a href="/about-us.html" title="О нас">О нас</a></li>
+                    <li class="bread-crumbs__item"><a href="<?php echo home_url("/o-nas/"); ?>" title="О нас">О нас</a></li>
                 </ol>
             </nav>
             <article class="about-us">
@@ -129,35 +90,4 @@
             </article>
         </div>
     </main>
-    <footer class="footer">
-        <div class="footer__container container">
-            <div class="footer__info">
-                <p class="footer__copy">© 2025 Wooden Puzzles & Games.<br> Все права защищены.</p>
-                <a href="/privacy-policy.html" class="footer__policy" title="Политика конфиденциальности">Политика конфиденциальности</a>
-            </div>
-            <nav class="footer__menu">
-                <h3 class="footer__menu-title">Категории</h3>
-                <ul class="footer__menu-list">
-                    <li class="footer__menu-item"><a href="/category.html" title="Головоломки" aria-current="page">Головоломки</a></li>
-                    <li class="footer__menu-item"><a href="/category.html" title="Карточные игры">Карточные игры</a></li>
-                    <li class="footer__menu-item"><a href="/category.html" title="Наборы для DnD">Наборы для DnD</a></li>
-                </ul>
-            </nav>
-            <div class="footer__contacts-block">
-                <address class="footer__contacts">
-                    <a class="footer__contact" rel="nofollow" href="mailto:wuzl.job@yandex.ru" title="Электронная почта"><i class="fa-solid fa-envelope fa-xl"></i>wuzl.job@yandex.ru</a>
-                    <a class="footer__contact" rel="nofollow" href="tel:+79833202334" title="Номер телефона"><i class="fa-solid fa-phone fa-xl"></i>+7 (983) 320-23-34</a>
-                </address>
-                <div class="footer__social-links">
-                    <a class="footer__social-link" rel="nofollow" href="https://vk.com/wuzlru" title="Группа в ВК" ><i class="fa-brands fa-vk fa-2xl"></i></a>
-                    <a class="footer__social-link" rel="nofollow" href="https://wa.me/79833202334" title="Ссылка для связи в WhatsApp"><i class="fa-brands fa-whatsapp fa-2xl"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <button class="up-button" type="button">
-        <div class="arrow-top"></div>
-    </button>
-    <script src="/js/main.js"></script>
-</body>
-</html>
+<?php get_footer(); ?>  

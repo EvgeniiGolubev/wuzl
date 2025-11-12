@@ -9,6 +9,14 @@
 
         if (is_page('catalog')) {
             wp_enqueue_style('catalog', get_template_directory_uri() . '/assets/css/catalog.css');
+        } elseif (is_page('kak-sobrat-golovolomku')) {
+            wp_enqueue_style('how-assemble-puzzle', get_template_directory_uri() . '/assets/css/how-assemble-puzzle.css');
+        } elseif (is_category()) {
+            wp_enqueue_style('category', get_template_directory_uri() . '/assets/css/category.css');
+        } elseif (is_page('o-nas')) {
+            wp_enqueue_style('about-us', get_template_directory_uri() . '/assets/css/about-us.css');
+        } elseif (is_page('politika-konfidencialnosti')) {
+            wp_enqueue_style('privacy-policy', get_template_directory_uri() . '/assets/css/privacy-policy.css');
         } else {
             wp_enqueue_style( "main", get_template_directory_uri() . "/assets/css/main.css" );
         }

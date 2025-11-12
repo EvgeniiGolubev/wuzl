@@ -61,7 +61,7 @@
                 <h2 class="category__title">Мы предлагаем</h2>
                 <ul class="category__list">
                     <li class="category__item">
-                        <a href="/category.html" title="Головоломки">
+                        <a href="<?php echo home_url("/catalog/golovolomki/"); ?>" title="Головоломки">
                             <figure class="category__figure">
                                 <img class="category__image" src="img/catalog-golovolomka.png" alt="Головоломки" width="300">
                                 <figcaption class="category__info">
@@ -72,7 +72,7 @@
                         </a>
                     </li>
                     <li class="category__item">
-                        <a href="/category.html" title="Карточные игры">
+                        <a href="<?php echo home_url("/catalog/kartochnye-igry/"); ?>" title="Карточные игры">
                             <figure class="category__figure">
                                 <img class="category__image" src="img/catalog-lovers.png" alt="Карточные игры" width="300">
                                 <figcaption class="category__info">
@@ -83,7 +83,7 @@
                         </a>
                     </li>
                     <li class="category__item">
-                        <a href="/category.html" title="Наборы для DnD">
+                        <a href="<?php echo home_url("/catalog/nabory-dlya-dnd/"); ?>" title="Наборы для DnD">
                             <figure class="category__figure">
                                 <img class="category__image" src="img/catalog-dnd.png" alt="Наборы для DnD" width="300">
                                 <figcaption class="category__info">

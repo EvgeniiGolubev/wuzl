@@ -8,9 +8,9 @@
     margin-bottom: 30px;
 }
 
-.post img {
+.post__content img {
     display: block;
-    width: 600px;
+    width: 600px !important;
     height: auto;
     margin: 0 auto 15px auto;
 }

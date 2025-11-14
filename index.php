@@ -120,7 +120,7 @@
                         <p class="blog__description">
                             Топ настольных игр на двоих 2025: карточные и классические настолки, лучшие игры для 2 человек. Обзор, рейтинг и советы, в какие настолки поиграть вдвоем.
                         </p>
-                        <a class="btn blog__btn" href="/blog.html" title="Читайте в блоге" target="_blank">Читайте в блоге</a>
+                        <a class="btn blog__btn" href="<?php echo home_url("/blog/"); ?>" title="Читайте в блоге" target="_blank">Читайте в блоге</a>
                     </div>
                 </div>
             </section>

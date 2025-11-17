@@ -1,12 +1,25 @@
-<?php get_header(); ?>  
+<?php 
+    /* 
+    * Template Name: Main page
+    */
+    get_header();
+    
+    $hero_img_id  = CFS()->get('hero_img');
+    $hero_img_url = wp_get_attachment_image_url($hero_img_id, 'full');
+    $hero_img_alt = get_post_meta($hero_img_id, '_wp_attachment_image_alt', true);
+
+    $golovolomki_img_id  = CFS()->get('catalog_golovolomki_img');
+    $golovolomki_img_url = wp_get_attachment_image_url($golovolomki_img_id, 'full');
+    $golovolomki_img_alt = get_post_meta($golovolomki_img_id, '_wp_attachment_image_alt', true);
+?>  
     <main class="main">
         <div class="main__container container">
             <section class="hero">
                 <div class="hero__img-holder">
-                    <img class="hero__img" alt="Головоломка Wuzl" src="img/blob.png" width="450"/>
+                    <img class="hero__img" alt="<?php echo $hero_img_alt; ?>" src="<?php echo $hero_img_url; ?>" width="450"/>
                 </div>
                 <div class="hero__content">
-                    <h1 class="hero__title">Деревянные головоломки и игры</h1>
+                    <h1 class="hero__title"><?php echo CFS()->get('hero_title') ?></h1>
                     <div class="hero__btn-holder">
                         <a class="btn btn--ozon hero__btn" href="#" title="Купить на OZON" target="_blank">Купить на OZON</a>
                         <a class="btn btn--wb hero__btn" href="#" title="Купить на WB" target="_blank">Купить на WB</a>
@@ -63,10 +76,10 @@
                     <li class="category__item">
                         <a href="<?php echo home_url("/catalog/golovolomki/"); ?>" title="Головоломки">
                             <figure class="category__figure">
-                                <img class="category__image" src="img/catalog-golovolomka.png" alt="Головоломки" width="300">
+                                <img class="category__image" alt="<?php echo $golovolomki_img_alt; ?>" src="<?php echo $golovolomki_img_url; ?>" width="300">
                                 <figcaption class="category__info">
-                                    <h3 class="category__name">Головоломки</h3>
-                                    <p class="category__description">Сложные и красивые коробочки с секретом, сделанные вручную.</p>
+                                    <h3 class="category__name"><?php echo CFS()->get('catalog_golovolomki_name'); ?></h3>
+                                    <p class="category__description"><?php echo CFS()->get('catalog_golovolomki_description'); ?></p>
                                 </figcaption>
                             </figure>
                         </a>

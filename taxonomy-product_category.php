@@ -25,55 +25,6 @@
                             <span class="category__price">3500₽</span>
                         </a>
                     </li>
-                    <li class="category__item">
-                        <a href="/single-product.html" title="Da Vinci Мокко">
-                            <img class="category__img" alt="Da Vinci Мокко" src="img/da-vinci-mokko.jpg" width="250"/>
-                            <h3 class="category__name">Головоломка Da Vinci Мокко</h3>
-                            <span class="category__price">3500₽</span>
-                        </a>
-                    </li>
-                    <li class="category__item">
-                        <a href="/single-product.html" title="Da Vinci Эбен">
-                            <img class="category__img" alt="Da Vinci Эбен" src="img/da-vinci-eben.jpg" width="250"/>
-                            <h3 class="category__name">Головоломка Da Vinci Эбен</h3>
-                            <span class="category__price">3500₽</span>
-                        </a>
-                    </li>
-                    <li class="category__item">
-                        <a href="/single-product.html" title="Da Vinci Орех">
-                            <img class="category__img" alt="Da Vinci Орех" src="img/da-vinci-oreh.jpg" width="250"/>
-                            <h3 class="category__name">Головоломка Da Vinci Орех</h3>
-                            <span class="category__price">3500₽</span>
-                        </a>
-                    </li>
-                    <li class="category__item">
-                        <a href="/single-product.html" title="Минотавр Дуб">
-                            <img class="category__img" alt="Минотавр Дуб" src="img/minotavr.jpg" width="250"/>
-                            <h3 class="category__name">Головоломка Минотавр Дуб</h3>
-                            <span class="category__price">2500₽</span>
-                        </a>                        
-                    </li>
-                    <li class="category__item">
-                        <a href="/single-product.html" title="Минотавр Орех">
-                            <img class="category__img" alt="Минотавр Орех" src="img/minotavr-oreh.jpg" width="250"/>
-                            <h3 class="category__name">Головоломка Минотавр Орех</h3>
-                            <span class="category__price">2500₽</span>
-                        </a>
-                    </li>
-                    <li class="category__item">
-                        <a href="/single-product.html" title="Минотавр Мокко">
-                            <img class="category__img" alt="Минотавр Мокко" src="img/minotavr-mokko.jpg" width="250"/>
-                            <h3 class="category__name">Головоломка Минотавр Мокко</h3>
-                            <span class="category__price">2500₽</span>
-                        </a>
-                    </li>
-                    <li class="category__item">
-                        <a href="/single-product.html" title="Минотавр Эбен">
-                            <img class="category__img" alt="Минотавр Эбен" src="img/minotavr-eben.jpg" width="250"/>
-                            <h3 class="category__name">Головоломка Минотавр Эбен</h3>
-                            <span class="category__price">2500₽</span>
-                        </a>
-                    </li>
                 </ul>
             </section>
         </div>

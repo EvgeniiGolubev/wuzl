@@ -11,17 +11,24 @@
             <article class="blog">
                 <h1 class="blog__title">Блог</h1>
                 <ul class="blog__list">
-                    <li class="blog__item">
-                        <a href="/single-post.html" title="Топ настольных игр на двоих">
-                            <figure class="blog__figure">
-                                <img class="blog__image" src="img/blog/nastolnaya-igra.jpg" alt="" width="300">
-                                <figcaption class="blog__info">
-                                    <h2 class="blog__name">Топ настольных игр на двоих</h2>
-                                    <p class="blog__description">Топ настольных игр на двоих 2025: карточные и классические настолки, лучшие игры для 2 человек. Обзор, рейтинг и советы, в какие настолки поиграть вдвоем.</p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </li>
+                    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+                        <li class="blog__item">
+                            <a href="<?php the_permalink(); ?>" title="Топ настольных игр на двоих">
+                                <figure class="blog__figure">
+                                    <?php
+                                        $thumb_id = get_post_thumbnail_id( get_the_ID() );
+                                        $img_url = wp_get_attachment_image_url( $thumb_id, 'large' );
+                                        $img_alt = get_post_meta( $thumb_id, '_wp_attachment_image_alt', true );
+                                    ?>
+                                    <img class="blog__image" src="<?php echo $img_url; ?>" alt="<?php echo esc_attr($img_alt); ?>" width="300">
+                                    <figcaption class="blog__info">
+                                        <h2 class="blog__name"><?php the_title(); ?></h2>
+                                        <p class="blog__description"><?php echo get_post_meta( get_the_ID(), '_yoast_wpseo_metadesc', true ); ?></p>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                    <?php endwhile; endif; ?>
                 </ul>
             </article>
         </div>

@@ -1,13 +1,16 @@
 <?php
     add_theme_support('post-thumbnails');
-    
-    add_action( "wp_enqueue_scripts", "add_styles" );
-    add_action( "wp_enqueue_scripts", "add_scripts" );
+    add_theme_support('title-tag');
+    add_theme_support('custom-logo');
+
+    add_action( 'wp_enqueue_scripts', 'add_styles' );
+    add_action( 'wp_enqueue_scripts', 'add_scripts' );
+    add_action( 'init', 'register_categories' );
 
     function add_styles() {
-        wp_enqueue_style( "style", get_stylesheet_uri() );
-        wp_enqueue_style( "header", get_template_directory_uri() . "/assets/css/header.css" );
-        wp_enqueue_style( "footer", get_template_directory_uri() . "/assets/css/footer.css" );
+        wp_enqueue_style( 'style', get_stylesheet_uri() );
+        wp_enqueue_style( 'header', get_template_directory_uri() . '/assets/css/header.css' );
+        wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/css/footer.css' );
 
         if (is_page('catalog')) {
             wp_enqueue_style('catalog', get_template_directory_uri() . '/assets/css/catalog.css');
@@ -28,21 +31,20 @@
         } elseif (is_single() && get_post_type() === 'post') {
             wp_enqueue_style('single-post', get_template_directory_uri() . '/assets/css/single-post.css');
         } else {
-            wp_enqueue_style( "main", get_template_directory_uri() . "/assets/css/main.css" );
+            wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/css/main.css' );
         }
     }
 
     function add_scripts() {
-        wp_enqueue_script( "main", get_template_directory_uri() . "/assets/js/main.js", false, null, true );
+        wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', false, null, true );
         
         if(is_front_page() || is_singular('product')) {
-            wp_enqueue_script( "slider", get_template_directory_uri() . "/assets/js/slider.js", false, null, true );
-            wp_enqueue_script( "review-modal", get_template_directory_uri() . "/assets/js/review-modal.js", false, null, true );
+            wp_enqueue_script( 'slider', get_template_directory_uri() . '/assets/js/slider.js', false, null, true );
+            wp_enqueue_script( 'review-modal', get_template_directory_uri() . '/assets/js/review-modal.js', false, null, true );
         }
     }
-
-    add_action('init', function() {
-
+    
+    function register_categories() {
         // ТОВАРЫ
         register_post_type('product', array(
             'labels' => array(
@@ -50,7 +52,7 @@
                 'singular_name' => 'Товар',
             ),
             'public'      => true,
-            'has_archive' => false, // общий архив /product/ не нужен
+            'has_archive' => false,
             'menu_icon'   => 'dashicons-cart',
             'supports'    => array('title', 'editor', 'thumbnail'),
             'rewrite'     => array('slug' => 'product'),
@@ -63,9 +65,23 @@
                 'singular_name' => 'Категория товара',
             ),
             'public'       => true,
-            'hierarchical' => true, // как обычные рубрики
+            'hierarchical' => true,
             'rewrite'      => array('slug' => 'catalog'),
         ));
-    });
+    }
+
+    add_filter( 'upload_mimes', function( $mimes ) {
+        $mimes['ico'] = 'image/x-icon';
+        return $mimes;
+    } );
+
+    add_filter( 'wp_check_filetype_and_ext', function( $data, $file, $filename, $mimes, $real_mime ) {
+        $ext = pathinfo( $filename, PATHINFO_EXTENSION );
+        if ( strtolower( $ext ) === 'ico' ) {
+            $data['ext']  = 'ico';
+            $data['type'] = 'image/x-icon';
+        }
+        return $data;
+    }, 10, 5 );
 
 ?>

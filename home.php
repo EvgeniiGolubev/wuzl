@@ -13,7 +13,7 @@
                 <ul class="blog__list">
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                         <li class="blog__item">
-                            <a href="<?php the_permalink(); ?>" title="Топ настольных игр на двоих">
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                 <figure class="blog__figure">
                                     <?php
                                         $thumb_id = get_post_thumbnail_id( get_the_ID() );

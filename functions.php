@@ -66,7 +66,11 @@
             ),
             'public'       => true,
             'hierarchical' => true,
-            'rewrite'      => array('slug' => 'catalog'),
+            'rewrite'      => array(
+                'slug'         => 'catalog',
+                'with_front'   => false,
+                'hierarchical' => true
+            ),
         ));
     }
 

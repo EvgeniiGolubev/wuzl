@@ -27,7 +27,7 @@
     max-width: 680px;
 }
 
-.company__description, .team__description, .production__description {
+.company__description-holder p, .team__description, .production__description-holder p {
     margin: 0 0 10px 0;
 }
 

@@ -20,7 +20,7 @@
                     <li class="bread-crumbs__item" aria-hidden="true">/</li>
                     <li class="bread-crumbs__item"><a href="<?php echo home_url("/blog/"); ?>" title="Блог">Блог</a></li>
                     <li class="bread-crumbs__item" aria-hidden="true">/</li>
-                    <li class="bread-crumbs__item"><a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
+                    <li class="bread-crumbs__item" aria-current="page"><?php the_title(); ?></li>
                 </ol>
             </nav>
             <!-- todo: обтекающий текст для фотографий для десктопной версии? -->
@@ -35,7 +35,7 @@
                             ← <span><?php echo get_the_title($prev_post->ID); ?></span>
                         </a>
                     <?php endif; ?>
-                    <div></div>
+                    <div class="post-navigation__spacer"></div>
                     <?php if ( $next_post ) : ?>
                         <a href="<?php echo get_permalink($next_post->ID); ?>" class="post-nav post-nav--next">
                             <span><?php echo get_the_title($next_post->ID); ?></span> →
@@ -48,7 +48,7 @@
                         <ul class="another-posts__list">
                             <?php while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); ?>
                                 <li class="another-posts__item">
-                                    <a href="/single-post.html" title="Другая статья">
+                                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                         <figure class="another-posts__figure">
                                             <?php
                                                 $thumb_id = get_post_thumbnail_id( get_the_ID() );
@@ -66,7 +66,7 @@
                             <?php endwhile; ?>
                         </ul>
                     </section>
-                <?php endif; ?>
+                <?php endif; wp_reset_postdata(); ?>
             </article>
         </div>
     </main>

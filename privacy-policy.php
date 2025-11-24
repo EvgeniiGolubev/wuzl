@@ -10,7 +10,7 @@
                 <ol class="bread-crumbs__list">
                     <li class="bread-crumbs__item"><a href="<?php echo home_url("/"); ?>" title="Главная">Главная</a></li>
                     <li class="bread-crumbs__item" aria-hidden="true">/</li>
-                    <li class="bread-crumbs__item"><a href="<?php echo home_url("/politika-konfidencialnosti/"); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
+                    <li class="bread-crumbs__item" aria-current="page"><?php the_title(); ?></li>
                 </ol>
             </nav>
             <article class="politica">

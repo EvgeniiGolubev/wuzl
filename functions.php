@@ -6,6 +6,7 @@
     add_action( 'wp_enqueue_scripts', 'add_styles' );
     add_action( 'wp_enqueue_scripts', 'add_scripts' );
     add_action( 'init', 'register_categories' );
+    add_action('template_redirect', 'popular_category_redirect');
 
     function add_styles() {
         wp_enqueue_style( 'style', get_stylesheet_uri() );
@@ -74,6 +75,17 @@
         ));
     }
 
+    function popular_category_redirect() {
+        if (is_tax('product_category')) {
+            $term = get_queried_object();
+
+            if ($term && $term->slug === 'popular') {
+                wp_redirect(home_url('/'), 301);
+                exit;
+            }
+        }
+    }
+
     add_filter( 'upload_mimes', function( $mimes ) {
         $mimes['ico'] = 'image/x-icon';
         return $mimes;
@@ -88,4 +100,10 @@
         return $data;
     }, 10, 5 );
 
+    add_filter('wpseo_sitemap_entry', function($url, $type, $object){
+        if ($type === 'term' && $object->taxonomy === 'product_category' && $object->slug === 'popular') {
+            return false;
+        }
+        return $url;
+    }, 10, 3);
 ?>

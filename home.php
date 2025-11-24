@@ -5,7 +5,7 @@
                 <ol class="bread-crumbs__list">
                     <li class="bread-crumbs__item"><a href="<?php echo home_url("/"); ?>" title="Главная">Главная</a></li>
                     <li class="bread-crumbs__item" aria-hidden="true">/</li>
-                    <li class="bread-crumbs__item"><a href="<?php echo home_url("/blog/"); ?>" title="Блог">Блог</a></li>
+                    <li class="bread-crumbs__item" aria-current="page">Блог</li>
                 </ol>
             </nav>
             <article class="blog">
@@ -28,7 +28,7 @@
                                 </figure>
                             </a>
                         </li>
-                    <?php endwhile; endif; ?>
+                    <?php endwhile; endif; wp_reset_postdata(); ?>
                 </ul>
             </article>
         </div>

@@ -31,6 +31,8 @@
             wp_enqueue_style('single-product', get_template_directory_uri() . '/assets/css/single-product.css');
         } elseif (is_single() && get_post_type() === 'post') {
             wp_enqueue_style('single-post', get_template_directory_uri() . '/assets/css/single-post.css');
+        } elseif (is_404()) {
+            wp_enqueue_style('404', get_template_directory_uri() . '/assets/css/404.css');
         } else {
             wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/css/main.css' );
         }

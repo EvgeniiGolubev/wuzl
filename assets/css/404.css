@@ -1,0 +1,28 @@
+.page-error {
+    text-align: center;
+}
+
+.page-error__title {
+    margin: 0 0 25px 0;
+    font-size: 86px;
+    color: var(--main-color);
+}
+
+.page-error__description {
+    margin: 0;
+    color: var(--color-support-text);
+}
+
+.page-error__link {
+    margin-bottom: 25px;
+    color: var(--color-support-text);
+    transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.page-error__link:hover {
+    color: var(--active-main-color);
+}
+
+.page-error__link:active {
+    transform: scale(0.97);
+}

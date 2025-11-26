@@ -4,6 +4,8 @@
     $category = get_queried_object();
     $cat_name = $category->name;
     $cat_slug = $category->slug;
+    $cat_description = $category->description;
+
     $query = new WP_Query([
         'post_type'      => 'product',
         'posts_per_page' => -1,
@@ -48,6 +50,11 @@
                     <?php endwhile; ?>
                 </ul>
                 <?php endif; wp_reset_postdata();?>
+                <?php if ( !empty($cat_description) ): ?>
+                    <div class="category__description">
+                        <?php echo wp_kses_post($cat_description); ?>
+                    </div>
+                <?php endif; ?>
             </section>
         </div>
     </main>

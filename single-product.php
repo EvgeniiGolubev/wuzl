@@ -9,6 +9,7 @@
     $query = new WP_Query([
         'post_type'      => 'product',
         'posts_per_page' => 6,
+        'post__not_in'   => [ get_the_ID() ],
         'tax_query'      => [
             [
                 'taxonomy' => 'product_category',
@@ -127,4 +128,7 @@
             </section>
         </div>
     </main>
+    <div class="modal" id="review-modal">
+        <img src="" alt="Крупный отзыв" class="modal__img">
+    </div>
 <?php get_footer(); ?>

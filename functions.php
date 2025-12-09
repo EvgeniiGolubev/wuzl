@@ -58,7 +58,7 @@
             'has_archive' => false,
             'menu_icon'   => 'dashicons-cart',
             'supports'    => array('title', 'editor', 'thumbnail'),
-            'rewrite'     => array('slug' => 'product'),
+            'rewrite'     => array('slug' => 'product', 'with_front'   => false),
         ));
 
         // КАТЕГОРИИ ТОВАРОВ
@@ -108,4 +108,6 @@
         }
         return $url;
     }, 10, 3);
+    
+    add_filter( 'wpseo_json_ld_output', '__return_false' );
 ?>

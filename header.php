@@ -19,8 +19,8 @@
             <nav class="header__menu--mobile">
                 <ul class="menu__list--mobile menu__list-close">
                     <li class="menu__item--mobile <?php if (is_front_page()) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/"); ?>" title="Главная" aria-current="page">Главная</a></li>
-                    <li class="menu__item--mobile <?php if (is_page("catalog") || is_category()) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/catalog/"); ?>" title="Каталог">Каталог</a></li>
-                    <li class="menu__item--mobile <?php if (is_page("kak-sobrat-golovolomku")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/kak-sobrat-golovolomku/"); ?>" title="Как собрать головоломку?">Как собрать головоломку?</a></li>
+                    <li class="menu__item--mobile <?php if (is_page("catalog") || is_tax('product_category') || is_singular('product')) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/catalog/"); ?>" title="Каталог">Каталог</a></li>
+                    <li class="menu__item--mobile <?php if (is_page("kak-otkryt-derevyannuyu-golovolomku")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/kak-otkryt-derevyannuyu-golovolomku/"); ?>" title="Как открыть деревянную головоломку?">Открыть головоломку</a></li>
                     <li class="menu__item--mobile <?php if (is_page("o-nas") || is_page("politika-konfidencialnosti")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/o-nas/"); ?>" title="О нас">О нас</a></li>
                     <li class="menu__item--mobile <?php if (is_home() || (is_single() && get_post_type() === 'post')) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/blog/"); ?>" title="Блог">Блог</a></li>
                     <li class="menu__item--mobile <?php if (is_page("kontakty")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/kontakty/"); ?>" title="Контакты">Контакты</a></li>
@@ -32,8 +32,8 @@
             <nav class="header__menu">
                 <ul class="menu__list">
                     <li class="menu__item <?php if (is_front_page()) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/"); ?>" title="Главная" aria-current="page">Главная</a></li>
-                    <li class="menu__item <?php if (is_page("catalog") || is_category()) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/catalog/"); ?>" title="Каталог">Каталог</a></li>
-                    <li class="menu__item <?php if (is_page("kak-sobrat-golovolomku")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/kak-sobrat-golovolomku/"); ?>" title="Как собрать головоломку?">Как собрать головоломку?</a></li>
+                    <li class="menu__item <?php if (is_page("catalog") || is_tax('product_category') || is_singular('product')) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/catalog/"); ?>" title="Каталог">Каталог</a></li>
+                    <li class="menu__item <?php if (is_page("kak-otkryt-derevyannuyu-golovolomku")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/kak-otkryt-derevyannuyu-golovolomku/"); ?>" title="Как открыть деревянную головоломку?">Открыть головоломку</a></li>
                     <li class="menu__item <?php if (is_page("o-nas") || is_page("politika-konfidencialnosti")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/o-nas/"); ?>" title="О нас">О нас</a></li>
                     <li class="menu__item <?php if (is_home() || (is_single() && get_post_type() === 'post')) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/blog/"); ?>" title="Блог">Блог</a></li>
                     <li class="menu__item <?php if (is_page("kontakty")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/kontakty/"); ?>" title="Контакты">Контакты</a></li>

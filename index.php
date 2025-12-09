@@ -90,7 +90,7 @@
                         </a>
                     </li>
                     <li class="category__item">
-                        <?php $term = get_term_by('slug', 'golovolomki', 'product_category'); ?>
+                        <?php $term = get_term_by('slug', 'kartochnye-igry', 'product_category'); ?>
                         <a href="<?= get_term_link($term); ?>" title="<?= $fields['catalog_kartochnye_igry_name']; ?>">
                             <figure class="category__figure">
                                 <img class="category__image" src="<?php echo $kartochnye_igry_img_url; ?>" alt="<?php echo $kartochnye_igry_img_alt; ?>" width="300">
@@ -102,7 +102,7 @@
                         </a>
                     </li>
                     <li class="category__item">
-                        <?php $term = get_term_by('slug', 'golovolomki', 'product_category'); ?>
+                        <?php $term = get_term_by('slug', 'nabory-dlya-dnd', 'product_category'); ?>
                         <a href="<?= get_term_link($term); ?>" title="<?= $fields['catalog_dnd_name']; ?>">
                             <figure class="category__figure">
                                 <img class="category__image" src="<?php echo $dnd_img_url; ?>" alt="<?php echo $dnd_img_alt; ?>" width="300">

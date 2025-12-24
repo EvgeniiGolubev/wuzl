@@ -18,7 +18,7 @@
             </div>
             <nav class="header__menu--mobile">
                 <ul class="menu__list--mobile menu__list-close">
-                    <li class="menu__item--mobile <?php if (is_front_page()) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/"); ?>" title="Главная" aria-current="page">Главная</a></li>
+                    <li class="menu__item--mobile <?php if (is_front_page() || is_page("karta-sajta")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/"); ?>" title="Главная" aria-current="page">Главная</a></li>
                     <li class="menu__item--mobile <?php if (is_page("catalog") || is_tax('product_category') || is_singular('product')) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/catalog/"); ?>" title="Каталог">Каталог</a></li>
                     <li class="menu__item--mobile <?php if (is_page("kak-otkryt-derevyannuyu-golovolomku")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/kak-otkryt-derevyannuyu-golovolomku/"); ?>" title="Как открыть деревянную головоломку?">Открыть головоломку</a></li>
                     <li class="menu__item--mobile <?php if (is_page("o-nas") || is_page("politika-konfidencialnosti")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/o-nas/"); ?>" title="О нас">О нас</a></li>
@@ -31,7 +31,7 @@
             </nav>
             <nav class="header__menu">
                 <ul class="menu__list">
-                    <li class="menu__item <?php if (is_front_page()) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/"); ?>" title="Главная" aria-current="page">Главная</a></li>
+                    <li class="menu__item <?php if (is_front_page() || is_page("karta-sajta")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/"); ?>" title="Главная" aria-current="page">Главная</a></li>
                     <li class="menu__item <?php if (is_page("catalog") || is_tax('product_category') || is_singular('product')) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/catalog/"); ?>" title="Каталог">Каталог</a></li>
                     <li class="menu__item <?php if (is_page("kak-otkryt-derevyannuyu-golovolomku")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/kak-otkryt-derevyannuyu-golovolomku/"); ?>" title="Как открыть деревянную головоломку?">Открыть головоломку</a></li>
                     <li class="menu__item <?php if (is_page("o-nas") || is_page("politika-konfidencialnosti")) echo "menu__item--active"; ?>"><a href="<?php echo home_url("/o-nas/"); ?>" title="О нас">О нас</a></li>

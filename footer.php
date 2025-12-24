@@ -3,6 +3,7 @@
             <div class="footer__info">
                 <p class="footer__copy">© 2025 Wooden Puzzles & Games.<br> Все права защищены.</p>
                 <a href="<?php echo home_url("/politika-konfidencialnosti/"); ?>" class="footer__policy" title="Политика конфиденциальности">Политика конфиденциальности</a>
+                <a href="<?php echo home_url("/karta-sajta/"); ?>" class="footer__sitemap" title="Карта сайта">Карта сайта</a>
             </div>
             <nav class="footer__menu">
                 <h3 class="footer__menu-title">Категории</h3>

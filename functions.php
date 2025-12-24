@@ -23,6 +23,8 @@
             wp_enqueue_style('about-us', get_template_directory_uri() . '/assets/css/about-us.css');
         } elseif (is_page('politika-konfidencialnosti')) {
             wp_enqueue_style('privacy-policy', get_template_directory_uri() . '/assets/css/privacy-policy.css');
+        } elseif (is_page('karta-sajta')) {
+            wp_enqueue_style('sitemap', get_template_directory_uri() . '/assets/css/sitemap.css');
         } elseif (is_home()) {
             wp_enqueue_style('blog', get_template_directory_uri() . '/assets/css/blog.css');
         } elseif (is_page('kontakty')) {

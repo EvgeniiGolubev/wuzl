@@ -69,12 +69,12 @@
     margin: 0 0 10px 0;
 }
 
-.footer__policy, .footer__menu-item a {
+.footer__policy, .footer__sitemap, .footer__menu-item a {
     color: #fff;
     text-decoration: none;
 }
 
-.footer__contact:hover, .footer__policy:hover, .footer__menu-item a:hover {
+.footer__contact:hover, .footer__policy:hover, .footer__sitemap:hover, .footer__menu-item a:hover {
     color: var(--color-text);
 }
 

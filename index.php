@@ -192,6 +192,17 @@
                     </div>
                 </section>
             <?php endif; ?>
+            <section class="company">
+                <?php
+                    $company_title = $fields['company_title'];
+                    $company_btn_text = $fields['company_btn_text'];
+                ?>
+                <div class="company__content">
+                    <h2 class="company__title"><?= $company_title; ?></h2>
+                    <?php the_content(); ?>
+                    <a class="btn company__btn" href="<?php echo home_url("/o-nas/"); ?>" title="<?= $company_btn_text; ?>"><?= $company_btn_text; ?></a>
+                </div>
+            </section>
         </div>
     </main>
     <div class="modal" id="review-modal">

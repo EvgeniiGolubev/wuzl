@@ -30,6 +30,16 @@
                         </li>
                     <?php endwhile; endif; wp_reset_postdata(); ?>
                 </ul>
+                <?php if ( $wp_query->max_num_pages > 1 ) : ?>
+                    <nav class="pagination">
+                        <?php echo paginate_links( [
+                            'type'      => 'list',
+                            'mid_size'  => 2,
+                            'prev_text' => '«',
+                            'next_text' => '»',
+                        ] );?>
+                    </nav>
+                <?php endif; ?>
             </article>
         </div>
     </main>

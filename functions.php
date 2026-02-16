@@ -112,4 +112,36 @@
     }, 10, 3);
     
     add_filter( 'wpseo_json_ld_output', '__return_false' );
+
+    add_filter('wpseo_title', function ($title) {
+
+        if (is_home() && is_paged()) {
+    
+            $paged = (int) get_query_var('paged');
+    
+            $title = preg_replace('/\s*\|\s*Страница\s+\d+\s+из\s+\d+/iu', '', $title);
+    
+            $title = preg_replace('/\s*\|\s*Страница\s+\d+/iu', '', $title);
+    
+            return trim($title) . ' — стр. ' . $paged;
+        }
+    
+        return $title;
+    
+    }, 20);
+
+    add_filter('wpseo_metadesc', function ($desc) {
+
+        if (is_home() && is_paged()) {
+
+            $paged = (int) get_query_var('paged');
+
+            if (!empty($desc)) {
+                return $desc . ' – стр ' . $paged;
+            }
+        }
+
+        return $desc;
+
+    }, 20);
 ?>

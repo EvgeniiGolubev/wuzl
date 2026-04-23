@@ -3,9 +3,9 @@
     * Template Name: Sitemap
     */
     get_header();
-    $golovolomki_term = get_term_by('slug', 'golovolomki', 'product_category');
-    $kartochnye_term = get_term_by('slug', 'kartochnye-igry', 'product_category');
-    $dnd_term = get_term_by('slug', 'nabory-dlya-dnd', 'product_category');
+    $golovolomki_term = get_term_by('slug', 'derevyannye-golovolomki', 'product_category');
+    $kartochnye_term = get_term_by('slug', 'kartochnye-igry-dlya-par', 'product_category');
+    $dnd_term = get_term_by('slug', 'igrovye-nabory-dlya-dnd', 'product_category');
 ?>
     <main class="main">
         <div class="main__container container">

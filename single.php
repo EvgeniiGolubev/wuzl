@@ -55,7 +55,7 @@
                                                 $img_url = wp_get_attachment_image_url( $thumb_id, 'large' );
                                                 $img_alt = get_post_meta( $thumb_id, '_wp_attachment_image_alt', true );
                                             ?>
-                                            <img class="another-posts__image" src="<?php echo $img_url; ?>" alt="<?php echo esc_attr($img_alt); ?>" width="300">
+                                            <img class="another-posts__image" src="<?php echo $img_url; ?>" alt="<?php echo esc_attr($img_alt); ?>" height="300" width="300">
                                             <figcaption class="another-posts__info">
                                                 <h3 class="another-posts__name"><?php the_title(); ?></h3>
                                                 <p class="another-posts__description"><?php echo get_post_meta( get_the_ID(), '_yoast_wpseo_metadesc', true ); ?></p>
@@ -66,6 +66,53 @@
                             <?php endwhile; ?>
                         </ul>
                     </section>
+                    
+                    <script type="application/ld+json">
+                        <?php
+                        $items = [];
+                        $position = 1;
+                        
+                        foreach ( $recent_posts->posts as $post ) {
+                        
+                            $description = get_post_meta($post->ID, '_yoast_wpseo_metadesc', true);
+                            if ( ! $description ) {
+                                $description = wp_trim_words(
+                                    wp_strip_all_tags($post->post_content),
+                                    25
+                                );
+                            }
+                        
+                            $thumb_id = get_post_thumbnail_id($post->ID);
+                            $image = $thumb_id ? wp_get_attachment_image_url($thumb_id, 'full') : null;
+                        
+                            $items[] = [
+                                "@type" => "ListItem",
+                                "position" => $position++,
+                                "item" => [
+                                    "@type" => "BlogPosting",
+                                    "@id" => get_permalink($post->ID) . '#blogpost',
+                                    "headline" => get_the_title($post->ID),
+                                    "url" => get_permalink($post->ID),
+                                    "datePublished" => get_the_date('c', $post->ID),
+                                    "dateModified"  => get_the_modified_date('c', $post->ID),
+                                    "image" => $image,
+                                    "author" => [
+                                        "@type" => "Organization",
+                                        "name" => "WP Games"
+                                    ]
+                                ]
+                            ];
+                        }
+                        
+                        echo wp_json_encode([
+                            "@context" => "https://schema.org",
+                            "@type" => "ItemList",
+                            "@id" => get_permalink() . '#related-posts',
+                            "name" => "Читайте также",
+                            "itemListElement" => $items
+                        ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+                        ?>
+                    </script>
                 <?php endif; wp_reset_postdata(); ?>
             </article>
         </div>

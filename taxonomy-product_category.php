@@ -43,7 +43,7 @@
                         <li class="category__item">
                             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                 <img class="category__img" alt="<?php echo esc_attr($img_alt); ?>" src="<?php echo $img_url; ?>" width="250"/>
-                                <h3 class="category__name"><?php the_title(); ?></h3>
+                                <p class="category__name"><?php the_title(); ?></p>
                                 <span class="category__price"><?php echo CFS()->get('card_price'); ?> ₽</span>
                             </a>
                         </li>

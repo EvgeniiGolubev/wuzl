@@ -8,7 +8,7 @@
 
     $query = new WP_Query([
         'post_type'      => 'product',
-        'posts_per_page' => 6,
+        'posts_per_page' => 8,
         'post__not_in'   => [ get_the_ID() ],
         'tax_query'      => [
             [
@@ -47,7 +47,7 @@
                                         $images_item_alt = get_post_meta($images_item_id, '_wp_attachment_image_alt', true);
                                 ?>
                                     <li class="images__item">
-                                        <img class="card__image" alt="<?php echo $images_item_alt; ?>" src="<?php echo $images_item_url; ?>" width="600"/>
+                                        <img class="card__image" alt="<?php echo $images_item_alt; ?>" src="<?php echo $images_item_url; ?>" height="600" width="600"/>
                                     </li>
                                 <?php endforeach?>
                             </ul>
@@ -62,7 +62,7 @@
                                     $images_item_alt = get_post_meta($images_item_id, '_wp_attachment_image_alt', true);
                             ?>
                                 <li class="card__thumbnail" >
-                                    <img alt="<?php echo $images_item_alt; ?>" src="<?php echo $images_item_url; ?>" width="170"/>
+                                    <img alt="<?php echo $images_item_alt; ?>" src="<?php echo $images_item_url; ?>" height="170" width="170"/>
                                 </li>
                             <?php endforeach?>
                         </ul>
@@ -74,8 +74,8 @@
                             <?php the_content(); ?>
                         </div>
                         <div class="card__actions">
-                            <a class="btn btn--ozon card__btn" href="<?= $fields['ozon_btn_url']; ?>" title="<?= $fields['ozon_btn_text']; ?>" target="_blank"><?= $fields['ozon_btn_text']; ?></a>
-                            <a class="btn btn--wb card__btn" href="<?= $fields['wb_btn_url']; ?>" title="<?= $fields['wb_btn_text']; ?>" target="_blank"><?= $fields['wb_btn_text']; ?></a>
+                            <a class="btn btn--ozon card__btn" href="<?= $fields['ozon_btn_url']; ?>" title="<?= $fields['ozon_btn_text']; ?>" target="_blank" onclick="<?= $fields['ozon_btn_metrika']; ?>; return true;"><?= $fields['ozon_btn_text']; ?></a>
+                            <a class="btn btn--wb card__btn" href="<?= $fields['wb_btn_url']; ?>" title="<?= $fields['wb_btn_text']; ?>" target="_blank" onclick="<?= $fields['wb_btn_metrika']; ?>; return true;"><?= $fields['wb_btn_text']; ?></a>
                         </div>
                     </div>
                 </div>
@@ -95,8 +95,8 @@
                             ?>
                             <li class="goods__item">
                                 <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                                    <img class="goods__img" alt="<?php echo esc_attr($img_alt); ?>" src="<?php echo $img_url; ?>" width="250"/>
-                                    <h3 class="goods__name"><?php the_title(); ?></h3>
+                                    <img class="goods__img" alt="<?php echo esc_attr($img_alt); ?>" src="<?php echo $img_url; ?>" height="250" width="250"/>
+                                    <span class="goods__name"><?php the_title(); ?></span>
                                     <span class="goods__price"><?php echo CFS()->get('card_price'); ?> ₽</span>
                                 </a>
                             </li>
@@ -105,6 +105,65 @@
                         <button class="slider__btn slider__btn--next goods__btn--next">→</button>
                     </div>
                 </section>
+                <script type="application/ld+json">
+                    <?php
+                        $items = [];
+                        $position = 1;
+                        
+                        foreach ( $query->posts as $post ) {
+                        
+                            $product_fields = CFS()->get(false, $post->ID);
+                        
+                            $price = isset($product_fields['card_price']) ? (int)$product_fields['card_price'] : null;
+                            $stock = isset($product_fields['card_stock']) ? (int)$product_fields['card_stock'] : 0;
+                        
+                            $availability = 'https://schema.org/InStock';
+                        
+                            $thumb_id = get_post_thumbnail_id($post->ID);
+                            $image = $thumb_id ? wp_get_attachment_image_url($thumb_id, 'full') : null;
+                        
+                            $description = get_the_excerpt($post->ID);
+                            if ( ! $description ) {
+                                $description = wp_trim_words(
+                                    wp_strip_all_tags($post->post_content),
+                                    25
+                                );
+                            }
+                        
+                            $items[] = [
+                                "@type" => "ListItem",
+                                "position" => $position++,
+                                "item" => [
+                                    "@type" => "Product",
+                                    "@id"   => get_permalink($post->ID) . '#product',
+                                    "name"  => get_the_title($post->ID),
+                                    "url"   => get_permalink($post->ID),
+                                    "image" => $image,
+                                    "description" => $description,
+                                    "brand" => [
+                                        "@type" => "Brand",
+                                        "name" => "WP Games"
+                                    ],
+                                    "offers" => [
+                                        "@type" => "Offer",
+                                        "url" => get_permalink($post->ID),
+                                        "price" => $price,
+                                        "priceCurrency" => "RUB",
+                                        "availability" => $availability
+                                    ]
+                                ]
+                            ];
+                        }
+                        
+                        echo wp_json_encode([
+                            "@context" => "https://schema.org",
+                            "@type" => "ItemList",
+                            "@id" => get_permalink() . '#related-products',
+                            "name" => "Похожие товары",
+                            "itemListElement" => $items
+                        ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+                    ?>
+                </script>
             <?php endif; wp_reset_postdata(); ?>
             <section class="reviews">
                 <h2 class="reviews__title"><?= $fields['reviews_title']; ?></h2>
@@ -119,7 +178,7 @@
                                 $reviews_item_alt = get_post_meta($reviews_item_id, '_wp_attachment_image_alt', true);
                         ?>
                             <li class="reviews__item">
-                                <img class="reviews__img" alt="<?php echo $reviews_item_alt; ?>" src="<?php echo $reviews_item_url; ?>" width="550"/>
+                                <img class="reviews__img" alt="<?php echo $reviews_item_alt; ?>" src="<?php echo $reviews_item_url; ?>" height="550" width="550"/>
                             </li>
                         <?php endforeach?>
                     </ul>

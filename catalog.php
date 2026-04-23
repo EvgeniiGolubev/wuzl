@@ -30,7 +30,7 @@
             <section class="catalog">
                 <h1 class="catalog__title"><?php the_title(); ?></h1>
                 <div class="catalog__list">
-                    <?php $term = get_term_by('slug', 'golovolomki', 'product_category'); ?>
+                    <?php $term = get_term_by('slug', 'derevyannye-golovolomki', 'product_category'); ?>
                     <a class="catalog__item catalog__item--main" href="<?= get_term_link($term); ?>" title="<?= $fields['catalog_golovolomki_name']; ?>">
                         <div class="catalog__item-content">
                             <h2 class="catalog__name"><?= $fields['catalog_golovolomki_name']; ?></h2>
@@ -38,7 +38,7 @@
                         </div>
                         <img class="catalog__img" alt="<?php echo $golovolomki_img_alt; ?>" src="<?php echo $golovolomki_img_url; ?>" height="350"/>
                     </a>
-                    <?php $term = get_term_by('slug', 'kartochnye-igry', 'product_category'); ?>
+                    <?php $term = get_term_by('slug', 'kartochnye-igry-dlya-par', 'product_category'); ?>
                     <a class="catalog__item" href="<?= get_term_link($term); ?>" title="<?= $fields['catalog_kartochnye_igry_name']; ?>">
                         <div class="catalog__item-content">
                             <h2 class="catalog__name"><?= $fields['catalog_kartochnye_igry_name']; ?></h2>
@@ -46,7 +46,7 @@
                         </div>
                         <img class="catalog__img" alt="<?php echo $kartochnye_igry_img_alt; ?>" src="<?php echo $kartochnye_igry_img_url; ?>" height="350"/>
                     </a>
-                    <?php $term = get_term_by('slug', 'nabory-dlya-dnd', 'product_category'); ?>
+                    <?php $term = get_term_by('slug', 'igrovye-nabory-dlya-dnd', 'product_category'); ?>
                     <a class="catalog__item" href="<?= get_term_link($term); ?>" title="<?= $fields['catalog_dnd_name']; ?>">
                         <div class="catalog__item-content">
                             <h2 class="catalog__name"><?= $fields['catalog_dnd_name']; ?></h2>

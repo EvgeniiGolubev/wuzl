@@ -38,13 +38,13 @@
         <div class="main__container container">
             <section class="hero">
                 <div class="hero__img-holder">
-                    <img class="hero__img" alt="<?php echo $hero_img_alt; ?>" src="<?php echo $hero_img_url; ?>" width="450"/>
+                    <img class="hero__img" alt="<?php echo $hero_img_alt; ?>" src="<?php echo $hero_img_url; ?>" height="450" width="450"/>
                 </div>
                 <div class="hero__content">
                     <h1 class="hero__title"><?php the_title(); ?></h1>
                     <div class="hero__btn-holder">
-                        <a class="btn btn--ozon hero__btn" href="<?= $fields['hero_ozon_url']; ?>" title="<?= $fields['hero_ozon_text']; ?>" target="_blank"><?= $fields['hero_ozon_text']; ?></a>
-                        <a class="btn btn--wb hero__btn" href="<?= $fields['hero_wb_url']; ?>" title="<?= $fields['hero_wb_text']; ?>" target="_blank"><?= $fields['hero_wb_text']; ?></a>
+                        <a class="btn btn--ozon hero__btn" href="<?= $fields['hero_ozon_url']; ?>" title="<?= $fields['hero_ozon_text']; ?>" target="_blank" onclick="ym(105779475, 'reachGoal', 'main-page_click_ozon');"><?= $fields['hero_ozon_text']; ?></a>
+                        <a class="btn btn--wb hero__btn" href="<?= $fields['hero_wb_url']; ?>" title="<?= $fields['hero_wb_text']; ?>" target="_blank" onclick="ym(105779475, 'reachGoal', 'main-page_click_wb');"><?= $fields['hero_wb_text']; ?></a>
                     </div>
                 </div>
             </section>
@@ -63,8 +63,8 @@
                             ?>
                                 <li class="goods__item">
                                     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                                        <img class="goods__img" alt="<?php echo esc_attr($img_alt); ?>" src="<?php echo $img_url; ?>" width="250"/>
-                                        <h3 class="goods__name"><?php the_title(); ?></h3>
+                                        <img class="goods__img" alt="<?php echo esc_attr($img_alt); ?>" src="<?php echo $img_url; ?>" height="250" width="250"/>
+                                        <p class="goods__name"><?php the_title(); ?></p>
                                         <span class="goods__price"><?= CFS()->get('card_price'); ?> ₽</span>
                                     </a>
                                 </li>
@@ -73,15 +73,74 @@
                         <button class="slider__btn slider__btn--next goods__btn--next">→</button>
                     </div>
                 </section>
+                <script type="application/ld+json">
+                    <?php
+                        $items = [];
+                        $position = 1;
+                        
+                        foreach ( $query->posts as $post ) {
+                        
+                            $product_fields = CFS()->get(false, $post->ID);
+                        
+                            $price = isset($product_fields['card_price']) ? (int)$product_fields['card_price'] : null;
+                            $stock = isset($product_fields['card_stock']) ? (int)$product_fields['card_stock'] : 0;
+                        
+                            $availability = 'https://schema.org/InStock';
+                        
+                            $thumb_id = get_post_thumbnail_id($post->ID);
+                            $image = $thumb_id ? wp_get_attachment_image_url($thumb_id, 'full') : null;
+                        
+                            $description = get_the_excerpt($post->ID);
+                            if ( ! $description ) {
+                                $description = wp_trim_words(
+                                    wp_strip_all_tags($post->post_content),
+                                    30
+                                );
+                            }
+                        
+                            $items[] = [
+                                "@type" => "ListItem",
+                                "position" => $position++,
+                                "item" => [
+                                    "@type" => "Product",
+                                    "@id"   => get_permalink($post->ID) . '#product',
+                                    "name"  => get_the_title($post->ID),
+                                    "url"   => get_permalink($post->ID),
+                                    "image" => $image,
+                                    "description" => $description,
+                                    "brand" => [
+                                        "@type" => "Brand",
+                                        "name" => "WP Games"
+                                    ],
+                                    "offers" => [
+                                        "@type" => "Offer",
+                                        "url" => get_permalink($post->ID),
+                                        "price" => $price,
+                                        "priceCurrency" => "RUB",
+                                        "availability" => $availability
+                                    ]
+                                ]
+                            ];
+                        }
+                        
+                        echo wp_json_encode([
+                            "@context" => "https://schema.org",
+                            "@type" => "ItemList",
+                            "@id" => home_url('/') . '#itemlist',
+                            "name" => "Популярные товары",
+                            "itemListElement" => $items
+                        ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+                    ?>
+                </script>
             <?php endif; wp_reset_postdata();?>
             <section class="category">
                 <h2 class="category__title"><?= $fields['catalog_title']; ?></h2>
                 <ul class="category__list">
                     <li class="category__item">
-                        <?php $term = get_term_by('slug', 'golovolomki', 'product_category'); ?>
+                        <?php $term = get_term_by('slug', 'derevyannye-golovolomki', 'product_category'); ?>
                         <a href="<?= get_term_link($term); ?>" title="<?= $fields['catalog_golovolomki_name']; ?>">
                             <figure class="category__figure">
-                                <img class="category__image" alt="<?php echo $golovolomki_img_alt; ?>" src="<?php echo $golovolomki_img_url; ?>" width="300">
+                                <img class="category__image" alt="<?php echo $golovolomki_img_alt; ?>" src="<?php echo $golovolomki_img_url; ?>" height="300" width="300">
                                 <figcaption class="category__info">
                                     <h3 class="category__name"><?= $fields['catalog_golovolomki_name']; ?></h3>
                                     <p class="category__description"><?= $fields['catalog_golovolomki_description']; ?></p>
@@ -90,10 +149,10 @@
                         </a>
                     </li>
                     <li class="category__item">
-                        <?php $term = get_term_by('slug', 'kartochnye-igry', 'product_category'); ?>
+                        <?php $term = get_term_by('slug', 'kartochnye-igry-dlya-par', 'product_category'); ?>
                         <a href="<?= get_term_link($term); ?>" title="<?= $fields['catalog_kartochnye_igry_name']; ?>">
                             <figure class="category__figure">
-                                <img class="category__image" src="<?php echo $kartochnye_igry_img_url; ?>" alt="<?php echo $kartochnye_igry_img_alt; ?>" width="300">
+                                <img class="category__image" src="<?php echo $kartochnye_igry_img_url; ?>" alt="<?php echo $kartochnye_igry_img_alt; ?>" height="300" width="300">
                                 <figcaption class="category__info">
                                     <h3 class="category__name"><?= $fields['catalog_kartochnye_igry_name']; ?></h3>
                                     <p class="category__description"><?= $fields['catalog_kartochnye_igry_description']; ?></p>
@@ -102,10 +161,10 @@
                         </a>
                     </li>
                     <li class="category__item">
-                        <?php $term = get_term_by('slug', 'nabory-dlya-dnd', 'product_category'); ?>
+                        <?php $term = get_term_by('slug', 'igrovye-nabory-dlya-dnd', 'product_category'); ?>
                         <a href="<?= get_term_link($term); ?>" title="<?= $fields['catalog_dnd_name']; ?>">
                             <figure class="category__figure">
-                                <img class="category__image" src="<?php echo $dnd_img_url; ?>" alt="<?php echo $dnd_img_alt; ?>" width="300">
+                                <img class="category__image" src="<?php echo $dnd_img_url; ?>" alt="<?php echo $dnd_img_alt; ?>" height="300" width="300">
                                 <figcaption class="category__info">
                                     <h3 class="category__name"><?= $fields['catalog_dnd_name']; ?></h3>
                                     <p class="category__description"><?= $fields['catalog_dnd_description']; ?></p>
@@ -155,7 +214,7 @@
                             }
                 ?>
                 <div class="blog__content">
-                    <img class="blog__image" src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>" width="400"/>
+                    <img class="blog__image" src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>" height="400" width="400"/>
                     <div class="blog__description-holder">
                         <h2 class="blog__title"><?php echo $blog_title; ?></h2>
                         <p class="blog__description"><?php echo $yoast_desc; ?></p>
@@ -184,7 +243,7 @@
                                     $reviews_img_alt = get_post_meta($reviews_img_id, '_wp_attachment_image_alt', true);
                             ?>
                                 <li class="reviews__item">
-                                    <img class="reviews__img" alt="<?php echo $reviews_img_alt; ?>" src="<?php echo $reviews_img_url; ?>" width="550"/>
+                                    <img class="reviews__img" alt="<?php echo $reviews_img_alt; ?>" src="<?php echo $reviews_img_url; ?>" height="550" width="550"/>
                                 </li>
                             <?php endforeach?>
                         </ul>

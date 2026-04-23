@@ -20,7 +20,7 @@
                                         $img_url = wp_get_attachment_image_url( $thumb_id, 'large' );
                                         $img_alt = get_post_meta( $thumb_id, '_wp_attachment_image_alt', true );
                                     ?>
-                                    <img class="blog__image" src="<?php echo $img_url; ?>" alt="<?php echo esc_attr($img_alt); ?>" width="300">
+                                    <img class="blog__image" src="<?php echo $img_url; ?>" alt="<?php echo esc_attr($img_alt); ?>" height="300" width="300">
                                     <figcaption class="blog__info">
                                         <h2 class="blog__name"><?php the_title(); ?></h2>
                                         <p class="blog__description"><?php echo get_post_meta( get_the_ID(), '_yoast_wpseo_metadesc', true ); ?></p>

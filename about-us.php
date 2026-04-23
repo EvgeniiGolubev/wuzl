@@ -31,7 +31,7 @@
                         <div class="company__description-holder">
                             <?= $fields['company_description']; ?>
                         </div>
-                        <img class="company__image" src="<?php echo $company_img_url; ?>" alt="<?php echo $company_img_alt; ?>" width="400"/>
+                        <img class="company__image" src="<?php echo $company_img_url; ?>" alt="<?php echo $company_img_alt; ?>" height="400" width="400"/>
                     </div>
                 </section>
                 <?php 
@@ -49,7 +49,7 @@
                             ?>
                                 <li class="team__item">
                                     <figure class="team__figure">
-                                        <img class="team__image" src="<?php echo $team_img_url; ?>" alt="<?php echo $team_img_alt; ?>" width="300">
+                                        <img class="team__image" src="<?php echo $team_img_url; ?>" alt="<?php echo $team_img_alt; ?>" height="300" width="300">
                                         <figcaption class="team__info">
                                             <span class="team__name"><?php echo $row['team_name']; ?></span>
                                             <span class="team__post"><?php echo $row['team_post']; ?></span>
@@ -65,7 +65,7 @@
                 <section class="production">
                     <h2 class="production__title"><?= $fields['production_title']; ?></h2>
                     <div class="production__content">
-                        <img class="production__image" src="<?php echo $production_img_url; ?>" alt="<?php echo $production_img_alt; ?>" width="400"/>
+                        <img class="production__image" src="<?php echo $production_img_url; ?>" alt="<?php echo $production_img_alt; ?>" height="400" width="400"/>
                         <div class="production__description-holder">
                             <?= $fields['production_description']; ?>
                         </div>

@@ -206,6 +206,7 @@
 .goods__name {
     margin: 0;
     font-size: 20px;
+    font-weight: bold;
 }
 
 .goods__price {
@@ -390,7 +391,7 @@
 /* company */
 
 .company {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 .company__title {
@@ -405,6 +406,49 @@
 
 .company__btn {
     margin: 0 auto;
+}
+
+/* faq */
+
+.faq {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.faq__title {
+    margin: 0 0 20px 0;
+    font-size: 30px;
+    text-align: center;
+}
+
+.faq__list {
+    margin: 0;
+    list-style: none;
+    position: relative;
+}
+
+.faq__item {
+    margin-bottom: 16px;
+}
+
+.faq__item:before {
+  font-family: FontAwesome;
+  content: "\f138";
+  position: absolute;
+  color: var(--main-color);
+  font-size: 24px;
+  left: 0px;
+}
+
+.faq__question {
+    margin: 0;
+}
+
+.faq__answer {
+    margin: 0;
 }
 
 /* mobile styles */

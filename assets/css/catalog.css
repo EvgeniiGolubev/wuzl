@@ -40,6 +40,13 @@
     flex-direction: row;
 }
 
+.catalog__item-content {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
 .catalog__img {
     width: auto;
     height: 350px;
@@ -48,7 +55,7 @@
 .catalog__name {
     margin: 10px 0;
     font-size: 30px;
-    color: #000
+    color: #000;
 }
 
 .catalog__desc {

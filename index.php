@@ -203,6 +203,22 @@
                     <a class="btn company__btn" href="<?php echo home_url("/o-nas/"); ?>" title="<?= $company_btn_text; ?>"><?= $company_btn_text; ?></a>
                 </div>
             </section>
+            <?php 
+                $loop = $fields['faq_items'];
+                if (!empty($loop) && is_array($loop)):
+            ?>
+                <section class="faq">
+                    <h2 class="faq__title"><?= $fields['faq_title']; ?></h2>
+                    <ul class="faq__list">
+                        <?php foreach ($loop as $row): ?>
+                            <li class="faq__item">
+                                <h3 class="faq__question"><?= $row['faq_question']; ?></h3>
+                                <p class="faq__answer"><?= $row['faq_answer']; ?></p>
+                            </li>
+                        <?php endforeach?>
+                    </ul>
+                </section>
+            <?php endif; ?>
         </div>
     </main>
     <div class="modal" id="review-modal">

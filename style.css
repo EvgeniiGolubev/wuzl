@@ -9,7 +9,7 @@ Requires PHP: 8.1
 Version: 1.0
 */
 
-@font-face {
+/* @font-face {
     font-family: 'Nunito';
     src: url('/fonts/Nunito-Regular.ttf') format('truetype');
     font-weight: 400;
@@ -28,7 +28,7 @@ Version: 1.0
     src: url('/fonts/Nunito-Italic.ttf') format('truetype');
     font-weight: 400;
     font-style: italic;
-}
+} */
 
 :root {
     --main-color: #fea429;
@@ -56,9 +56,13 @@ body {
     color: var(--color-text);
 }
 
-a, .btn {
+.btn {
     display: block;
     text-decoration: none;
+}
+
+a {
+   text-decoration: none; 
 }
 
 .container {
@@ -94,6 +98,11 @@ a, .btn {
 
 .bread-crumbs__item a:active {
     transform: scale(0.97);
+}
+
+.footer__menu-title {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 @media (max-width: 767px) {

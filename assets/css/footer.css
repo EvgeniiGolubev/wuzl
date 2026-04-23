@@ -69,6 +69,10 @@
     margin: 0 0 10px 0;
 }
 
+.footer__sitemap {
+    display: block;
+}
+
 .footer__policy, .footer__sitemap, .footer__menu-item a {
     color: #fff;
     text-decoration: none;
